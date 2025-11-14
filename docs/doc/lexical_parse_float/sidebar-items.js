@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"enum":["Error"],"mod":["format","options"],"struct":["NumberFormat","NumberFormatBuilder","Options","OptionsBuilder"],"trait":["FromLexical","FromLexicalWithOptions","ParseOptions"],"type":["Result"]};
