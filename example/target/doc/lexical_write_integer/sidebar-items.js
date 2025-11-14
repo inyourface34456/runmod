@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":["BUFFER_SIZE"],"enum":["Error"],"mod":["format","options"],"struct":["NumberFormat","NumberFormatBuilder","Options","OptionsBuilder"],"trait":["FormattedSize","ToLexical","ToLexicalWithOptions","WriteOptions"],"type":["Result"]};
