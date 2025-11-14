@@ -4,6 +4,9 @@ macro_rules! make_runner {
         /// I recommend that you disable autosave on your
         /// text editor/IDE (especily if it is high frequency),
         /// as this can cause unexpected panics.
+        /// 
+        /// This will update every time you call it, witch means
+        /// it will open the file, read it, parse the line, then close it.
         #[inline(always)]
         pub fn $func(&mut self) -> Option<$type> {
             let line = BufReader::new(File::open(&self.file_name).unwrap())
@@ -29,8 +32,10 @@ macro_rules! try_into_impl {
         ///the only time that this will fail is when doing something like the following:
         /// 
         /// ```
+        /// use runmod::RunVar;
+        /// 
         /// let val = RunVar::I32(10);
-        /// let val2: u32 = val.try_into().unwrap()
+        /// assert_eq!(TryInto::<i64>::try_into(val).is_err(), true);
         /// ```
         impl TryInto<$type> for RunVar {
             type Error = ();

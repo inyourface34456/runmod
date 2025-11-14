@@ -20,7 +20,7 @@ impl RunMod {
     /// # Examples
     /// 
     /// ```
-    /// use runmod::{RunMod, RunVer}
+    /// use runmod::{RunMod, RunVar};
     /// 
     /// let value = RunMod::new(RunVar::I32(10));
     /// let value2 = RunMod::new(10.into());
