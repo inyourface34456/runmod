@@ -10,10 +10,11 @@ Here is a basic usage example:
 use runmod::{RunMod, RunVar};
 
 fn main() {
-    let val = RunMod::new(RunMod::I32(42));
+    let mut val = RunMod::new(RunVar::I32(42));
     while val.get_i32().unwrap() == 42 {
-        println!("val: {}", val.get_i32().unwrap())
+        println!("val: {}", val.get_i32().unwrap());
         // this will run untill you change the value in the program
+        break // if this is not here, then rustdoc will not exit
     }
 }
 ```

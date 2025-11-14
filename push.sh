@@ -1,3 +1,4 @@
+set -e
 cargo test
 cargo doc
 rm -rf docs
