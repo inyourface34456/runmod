@@ -3,7 +3,7 @@ name = "runmod"
 version = "1.0.0"
 edition = "2024"
 license = "Apache-2.0"
-discription = "A rust libary to speed up development"
+description = "A rust libary to speed up development"
 
 [dependencies]
 lexical-core = "1.0.6"
