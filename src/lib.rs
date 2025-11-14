@@ -21,6 +21,7 @@ mod tests {
     #[test]
     fn f32_test() {
         let mut val = RunMod::new(RunVar::I8(2));
+        let _ = RunMod::new(10.into());
         while val.get_i8().unwrap() == 1 {
             println!("val: {}", val.get_i8().unwrap());
             std::thread::sleep(std::time::Duration::from_millis(8));

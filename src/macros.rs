@@ -1,5 +1,9 @@
 macro_rules! make_runner {
     ($func:ident, $varient: ident, $type:ty) => {
+        /// Reads the source file andf gets a new value.
+        /// I recommend that you disable autosave on your
+        /// text editor/IDE (especily if it is high frequency),
+        /// as this can cause unexpected panics.
         #[inline(always)]
         pub fn $func(&mut self) -> Option<$type> {
             let line = BufReader::new(File::open(&self.file_name).unwrap())
@@ -22,6 +26,12 @@ macro_rules! make_runner {
 
 macro_rules! try_into_impl {
     ($type:ty, $varient:ident) => {
+        ///the only time that this will fail is when doing something like the following:
+        /// 
+        /// ```
+        /// let val = RunVar::I32(10);
+        /// let val2: u32 = val.try_into().unwrap()
+        /// ```
         impl TryInto<$type> for RunVar {
             type Error = ();
             

@@ -13,6 +13,18 @@ pub struct RunMod {
 }
 
 impl RunMod {
+    ///Makes a new RunMod
+    /// 
+    /// This method will never panic or fail
+    /// 
+    /// # Examples
+    /// 
+    /// ```
+    /// use runmod::{RunMod, RunVer}
+    /// 
+    /// let value = RunMod::new(RunVar::I32(10));
+    /// let value2 = RunMod::new(10.into());
+    /// ```
     #[track_caller]
     pub fn new(val: RunVar) -> Self {
         let loc = Location::caller();
@@ -23,6 +35,7 @@ impl RunMod {
             line_number: loc.line(),
         }
     }
+    
     
     fn extract_runvar_arg(line: &str) -> Option<String> {
         RE.captures(line).map(|caps| caps[1].trim().to_string())
