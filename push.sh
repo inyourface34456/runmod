@@ -1,3 +1,4 @@
+cargo test
 cargo doc
 rm -rf docs
 mv target/doc docs

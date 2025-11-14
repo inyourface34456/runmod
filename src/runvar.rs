@@ -41,20 +41,20 @@ try_into_impl!(f32, F32);
 try_into_impl!(f64, F64);
 
 // from number to RunVar
-from_impl!(i8, I8);
-from_impl!(i16, I16);
-from_impl!(i32, I32);
-from_impl!(i64, I64);
-from_impl!(i128, I128);
-from_impl!(isize, ISIZE);
-from_impl!(u8, U8);
-from_impl!(u16, U16);
-from_impl!(u32, U32);
-from_impl!(u64, U64);
-from_impl!(u128, U128);
-from_impl!(usize, USIZE);
-from_impl!(f32, F32);
-from_impl!(f64, F64);
+// from_impl!(i8, I8);
+// from_impl!(i16, I16);
+// from_impl!(i32, I32);
+// from_impl!(i64, I64);
+// from_impl!(i128, I128);
+// from_impl!(isize, ISIZE);
+// from_impl!(u8, U8);
+// from_impl!(u16, U16);
+// from_impl!(u32, U32);
+// from_impl!(u64, U64);
+// from_impl!(u128, U128);
+// from_impl!(usize, USIZE);
+// from_impl!(f32, F32);
+// from_impl!(f64, F64);
 
 impl Display for RunVar {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {

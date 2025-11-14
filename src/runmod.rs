@@ -23,7 +23,6 @@ impl RunMod {
     /// use runmod::{RunMod, RunVar};
     /// 
     /// let value = RunMod::new(RunVar::I32(10));
-    /// let value2 = RunMod::new(10.into());
     /// ```
     #[track_caller]
     pub fn new(val: RunVar) -> Self {
