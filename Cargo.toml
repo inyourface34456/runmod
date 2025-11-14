@@ -4,6 +4,7 @@ version = "1.0.0"
 edition = "2024"
 license = "Apache-2.0"
 description = "A rust libary to speed up development"
+repository = "https://github.com/inyourface34456/runmod" 
 
 [dependencies]
 lexical-core = "1.0.6"

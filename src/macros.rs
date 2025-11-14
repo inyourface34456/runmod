@@ -51,12 +51,12 @@ macro_rules! try_into_impl {
     };
 }
 
-macro_rules! from_impl {
-    ($type:ty, $varient:ident) => {
-        impl From<$type> for RunVar {
-            fn from(value: $type) -> Self {
-                Self::$varient(value)
-            }
-        }
-    };
-}
+// macro_rules! from_impl {
+//     ($type:ty, $varient:ident) => {
+//         impl From<$type> for RunVar {
+//             fn from(value: $type) -> Self {
+//                 Self::$varient(value)
+//             }
+//         }
+//     };
+// }
