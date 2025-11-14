@@ -1,0 +1,2 @@
+window.ALL_CRATES = ["aho_corasick","lexical_core","lexical_parse_float","lexical_parse_integer","lexical_util","lexical_write_float","lexical_write_integer","memchr","regex","regex_automata","regex_syntax","runmod"];
+//{"start":21,"fragment_lengths":[14,15,22,24,15,22,24,9,8,17,15,9]}
