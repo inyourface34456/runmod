@@ -5,7 +5,7 @@ For now only number5 types are suported (i.e., your ix, ux, and fx).  I do plan 
 string suport at a later date if I ever get around to it.
 
 Here is a basic usage example:
-```
+```rust
 use runmod::{RunMod, RunVar};
 
 fn main() {
