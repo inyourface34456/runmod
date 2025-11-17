@@ -1,6 +1,6 @@
 use std::fmt::Display;
 
-#[derive(Clone, Copy, PartialEq, PartialOrd)]
+#[derive(Clone, PartialEq, PartialOrd)]
 pub enum RunVar {
     I8(i8),
     I16(i16),
@@ -15,7 +15,8 @@ pub enum RunVar {
     F32(f32),
     F64(f64),
     USIZE(usize),
-    ISIZE(isize)
+    ISIZE(isize),
+    STRING(String),
 }
 
 impl Default for RunVar {
@@ -39,6 +40,7 @@ try_into_impl!(u128, U128);
 try_into_impl!(usize, USIZE);
 try_into_impl!(f32, F32);
 try_into_impl!(f64, F64);
+try_into_impl!(String, STRING);
 
 // from number to RunVar
 // from_impl!(i8, I8);
@@ -72,7 +74,8 @@ impl Display for RunVar {
             Self::F32(x) => write!(f, "{}", x),
             Self::F64(x) => write!(f, "{}", x),
             Self::USIZE(x) => write!(f, "{}", x),
-            Self::ISIZE(x) => write!(f, "{}", x)
+            Self::ISIZE(x) => write!(f, "{}", x),
+            Self::STRING(x) => write!(f, "{}", x)
         }
     }
 }
