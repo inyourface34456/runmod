@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Base","LiteralKind","TokenKind"],"fn":["first_token","is_id_continue","is_id_start","is_whitespace","strip_shebang","tokenize"],"mod":["unescape"],"struct":["Token"]};

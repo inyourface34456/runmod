@@ -26,7 +26,7 @@ the `#[track_caller]` macro (the only way this works) to get the file and locati
 varible is made, and every time you call `.get_[type]` it reads the file, skips to the line 
 with the varible decelration and uses regex to parse it.  Tis can cause panics, but only if 
 you use a varible instead of a number like this:
-```should_panic
+```
 use runmod::{RunMod, RunVar};
 
 let val = 42;
