@@ -15,7 +15,7 @@ macro_rules! make_runner {
                 .unwrap().unwrap();
             
             if let RunVar::$varient(x) = self.value {
-                let num = lexical_core::parse(Self::extract_runvar_arg(&line).expect(&format!("line: {}", line)).as_bytes()).unwrap_or(x);
+                let num = Self::extract_runvar_arg(&line).expect(&format!("line: {}", line)).parse().unwrap_or(x);
                 if num != x {
                     self.value = RunVar::$varient(num);
                 }

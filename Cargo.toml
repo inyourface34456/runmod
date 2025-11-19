@@ -7,7 +7,6 @@ description = "A rust libary to speed up development"
 repository = "https://github.com/inyourface34456/runmod" 
 
 [dependencies]
-lexical-core = "1.0.6"
 regex = "1.12.2"
 rustc_lexer = "0.1.0"
 

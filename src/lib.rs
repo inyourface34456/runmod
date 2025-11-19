@@ -30,7 +30,8 @@ you use a varible instead of a number like this:
 use runmod::{RunMod, RunVar};
 
 let val = 42;
-let runvar = RunMod::new(RunVar::I32(val));
+let mut runvar = RunMod::new(RunVar::I32(val));
+runvar.get_i32();
 ```
 
 This fails due to lexical parser not knowing what do to to convert a string into a number (i will accept
