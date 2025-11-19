@@ -38,7 +38,7 @@ This fails due to lexical parser not knowing what do to to convert a string into
 PRs that can add this functionality while maintaning speed).
 */
 
-// #![feature(test)]
+#![feature(test)]
 #[macro_use]
 mod macros;
 mod runvar;
@@ -56,7 +56,7 @@ static RE: LazyLock<Regex> = LazyLock::new(|| {
 #[cfg(test)]
 mod tests {
     use super::*;
-    // extern crate test;
+    extern crate test;
     
     #[test]
     fn get_u8() {
@@ -148,19 +148,19 @@ mod tests {
         assert_eq!(val.get_string(), Some(String::from("me when i when")));
     }
     
-    // #[bench]
-    // fn getter(b: &mut test::Bencher) {
-    //     let mut val = RunMod::new(RunVar::F64(100000000.));
-    //     b.iter(|| {
-    //         test::black_box(val.get_f32())
-    //     });
-    // }
+    #[bench]
+    fn getter(b: &mut test::Bencher) {
+        let mut val = RunMod::new(RunVar::F64(100000000.));
+        b.iter(|| {
+            test::black_box(val.get_f32())
+        });
+    }
     
-    // #[bench]
-    // fn str_getter(b: &mut test::Bencher) {
-    //     let mut val = RunMod::new(RunVar::STRING("100000000.".to_string()));
-    //     b.iter(|| {
-    //         test::black_box(val.get_string())
-    //     });
-    // }
+    #[bench]
+    fn str_getter(b: &mut test::Bencher) {
+        let mut val = RunMod::new(RunVar::STRING("100000000.".to_string()));
+        b.iter(|| {
+            test::black_box(val.get_string())
+        });
+    }
 }

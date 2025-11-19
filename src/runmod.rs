@@ -36,7 +36,6 @@ impl RunMod {
         }
     }
     
-    
     fn extract_runvar_arg(line: &str) -> Option<String> {
         RE.captures(line).map(|caps| caps[1].trim().to_string())
     }
@@ -60,7 +59,6 @@ impl RunMod {
     /// It will parce escape sequences with the rust compiler, so it should be accurate (i.e. \n will become a new line, etc)
     /// This is (suprisingly not that much slower then the number ones, only 0.002ms slower)
     /// I have not tested this with utf-16, so it may not work
-    #[inline(always)]
     pub fn get_string(&mut self) -> Option<String> {
         let line = BufReader::new(File::open(&self.file_name).unwrap())
             .lines()
@@ -80,6 +78,32 @@ impl RunMod {
                 self.value = RunVar::STRING(out.clone());
             }
             Some(out)
+        } else {
+            None
+        }
+    }
+    
+    make_writer!(write_i8, I8, i8);
+    make_writer!(write_i16, I16, i16);
+    make_writer!(write_i32, I32, i32);
+    make_writer!(write_i64, I64, i64);
+    make_writer!(write_i128, I128, i128);
+    make_writer!(write_isize, ISIZE, isize);
+    make_writer!(write_u8, U8, u8);
+    make_writer!(write_u16, U16, u16);
+    make_writer!(write_u32, U32, u32);
+    make_writer!(write_u64, U64, u64);
+    make_writer!(write_u128, U128, u128);
+    make_writer!(write_usize, USIZE, usize);
+    make_writer!(write_f32, F32, f32);
+    make_writer!(write_f64, F64, f64);
+    
+    ///Takes an `&mut RunMod`, and writes to the value inside only if you
+    /// have the right type (indacted by the return value)
+    pub fn write_string<T: Display + Clone>(&mut self, new_val: T) -> Option<String> {
+        if let RunVar::STRING(mut _x) = self.value.clone() {
+            _x = new_val.to_string();
+            Some(new_val.to_string())
         } else {
             None
         }
