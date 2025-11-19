@@ -34,7 +34,7 @@ let mut runvar = RunMod::new(RunVar::I32(val));
 runvar.get_i32();
 ```
 
-This fails due to lexical parser not knowing what do to to convert a string into a number (i will accept
+This fails due to rust parser not knowing what do to to convert a varible name into a number (i will accept
 PRs that can add this functionality while maintaning speed).
 */
 
