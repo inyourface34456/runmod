@@ -145,7 +145,111 @@ mod tests {
     #[test]
     fn get_string() {
         let mut val = RunMod::new(RunVar::STRING("me when i when".into()));
-        assert_eq!(val.get_string(), Some(String::from("me when i when")));
+        assert_eq!(val.get_int_string(), Some(String::from("me when i when")));
+    }
+    
+    #[test]
+    fn write_string() {
+        let mut val = RunMod::new(RunVar::STRING("me when i when".into()));
+        val.write_string("me when i dont");
+        println!("{}", val);
+        assert_eq!(val.get_int_string(), Some(String::from("me when i dont")));
+    }
+    
+    #[test]
+    fn write_i8() {
+        let mut val = RunMod::new(RunVar::I8(1));
+        val.write_i8(2);
+        println!("{}", val);
+        assert_eq!(val.get_int_i8(), Some(2));
+    }
+    
+    #[test]
+    fn write_i16() {
+        let mut val = RunMod::new(RunVar::I16(1));
+        val.write_i16(2);
+        println!("{}", val);
+        assert_eq!(val.get_int_i16(), Some(2));
+    }
+    
+    #[test]
+    fn write_i32() {
+        let mut val = RunMod::new(RunVar::I32(1));
+        val.write_i32(2);
+        println!("{}", val);
+        assert_eq!(val.get_int_i32(), Some(2));
+    }
+    
+    #[test]
+    fn write_i64() {
+        let mut val = RunMod::new(RunVar::I64(1));
+        val.write_i64(2);
+        println!("{}", val);
+        assert_eq!(val.get_int_i64(), Some(2));
+    }
+    
+    #[test]
+    fn write_i128() {
+        let mut val = RunMod::new(RunVar::I128(1));
+        val.write_i128(2);
+        println!("{}", val);
+        assert_eq!(val.get_int_i128(), Some(2));
+    }
+    
+    #[test]
+    fn write_isize() {
+        let mut val = RunMod::new(RunVar::ISIZE(1));
+        val.write_isize(2);
+        println!("{}", val);
+        assert_eq!(val.get_int_isize(), Some(2));
+    }
+    
+    #[test]
+    fn write_u8() {
+        let mut val = RunMod::new(RunVar::U8(1));
+        val.write_u8(2);
+        println!("{}", val);
+        assert_eq!(val.get_int_u8(), Some(2));
+    }
+    
+    #[test]
+    fn write_u16() {
+        let mut val = RunMod::new(RunVar::U16(1));
+        val.write_u16(2);
+        println!("{}", val);
+        assert_eq!(val.get_int_u16(), Some(2));
+    }
+    
+    #[test]
+    fn write_u32() {
+        let mut val = RunMod::new(RunVar::U32(1));
+        val.write_u32(2);
+        println!("{}", val);
+        assert_eq!(val.get_int_u32(), Some(2));
+    }
+    
+    #[test]
+    fn write_u64() {
+        let mut val = RunMod::new(RunVar::U64(1));
+        val.write_u64(2);
+        println!("{}", val);
+        assert_eq!(val.get_int_u64(), Some(2));
+    }
+    
+    #[test]
+    fn write_u128() {
+        let mut val = RunMod::new(RunVar::U128(1));
+        val.write_u128(2);
+        println!("{}", val);
+        assert_eq!(val.get_int_u128(), Some(2));
+    }
+    
+    #[test]
+    fn write_usize() {
+        let mut val = RunMod::new(RunVar::USIZE(1));
+        val.write_usize(2);
+        println!("{}", val);
+        assert_eq!(val.get_int_usize(), Some(2));
     }
     
     #[bench]

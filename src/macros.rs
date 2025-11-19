@@ -44,8 +44,8 @@ macro_rules! make_writer {
         ///Takes an `&mut RunMod`, and writes to the value inside only if you
         /// have the right type (indacted by the return value)
         pub fn $func(&mut self, new_val: $type) -> Option<$type> {
-            if let RunVar::$varient(mut _x) = self.value {
-                _x = new_val;
+            if let RunVar::$varient(_) = self.value {
+                self.value = RunVar::$varient(new_val);
                 Some(new_val)
             } else {
                 None
@@ -78,12 +78,15 @@ macro_rules! try_into_impl {
     };
 }
 
-// macro_rules! from_impl {
-//     ($type:ty, $varient:ident) => {
-//         impl From<$type> for RunVar {
-//             fn from(value: $type) -> Self {
-//                 Self::$varient(value)
-//             }
-//         }
-//     };
-// }
+macro_rules! make_runner_internal {
+    ($func:ident, $varient: ident, $type:ty) => {
+        ///This will return the internel state without reading any files.
+        pub fn $func(&mut self) -> Option<$type> {
+            if let RunVar::$varient(x) = self.value {
+                return Some(x)
+            } else {
+                return None
+            }
+        }
+    };
+}
